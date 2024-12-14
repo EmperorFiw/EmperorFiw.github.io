@@ -1,0 +1,136 @@
+/* Reset and base styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+/* Content and frame styles */
+.content {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  z-index: 1;
+  color: white;
+}
+
+h1 {
+  background: linear-gradient(90deg, #ff0000, #ff4500, #8b0000);
+  animation: textGlowRightToLeft 3s infinite alternate, textRippleEffect 2s infinite alternate;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Frame styles */
+.frame {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border: 5px solid #ff4500;
+  box-sizing: border-box;
+  animation: frameBounceIn 1s ease-out;
+  z-index: 0;
+}
+
+/* Keyframes */
+
+/* เอฟเฟ็กต์ให้ข้อความกระพริบ */
+@keyframes textRippleEffect {
+  0% {
+    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000, 0 0 30px #ff4500;
+  }
+  50% {
+    text-shadow: 
+      0 0 20px #ff4500, 
+      0 0 40px #ff0000, 
+      0 0 60px #ff4500,
+      0 0 80px #ff0000, 
+      0 0 100px #ff4500;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000, 0 0 30px #ff4500;
+  }
+}
+
+/* เอฟเฟ็กต์ให้ข้อความสว่างจากขวาไปซ้าย */
+@keyframes textGlowRightToLeft {
+  0% {
+    background-position: 100% 0%;
+    color: transparent;
+    background-clip: text;
+  }
+  50% {
+    background-position: 0% 0%;
+    color: white;
+    background-clip: text;
+  }
+  100% {
+    background-position: 100% 0%;
+    color: transparent;
+    background-clip: text;
+  }
+}
+
+/* การเด้งเข้าของกรอบ */
+@keyframes frameBounceIn {
+  0% {
+    transform: translate(0, -100%);
+  }
+  25% {
+    transform: translate(0, 50%);
+  }
+  50% {
+    transform: translate(0, -25%);
+  }
+  75% {
+    transform: translate(0, 10%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* CSS สำหรับ fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ใช้แอนิเมชัน fade-in ใน body */
+html {
+  animation: fadeIn 2s ease-out;
+}
+
+body {
+  background-image: url('https://media.tenor.com/erbfpVT0mPUAAAAC/red-and-black-red.gif');
+  background-size: cover; /* ขยายภาพให้เต็มพื้นที่ */
+  background-position: center; /* ทำให้ภาพอยู่ตรงกลาง */
+  background-attachment: fixed; /* ป้องกันการเลื่อนภาพเมื่อเลื่อนหน้า */
+  height: 100vh; /* ให้พื้นหลังครอบคลุมทั้งหน้าจอ */
+  margin: 0; /* ลบขอบของหน้า */
+}
+
+@keyframes glowEffect {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 10px rgba(255, 0, 0, 0.5), 0 0 15px rgba(255, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.7), 0 0 45px rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.7), 0 0 10px rgba(255, 0, 0, 0.5), 0 0 15px rgba(255, 0, 0, 0.3);
+  }
+}
+
+.glowing-border {
+  animation: glowEffect 1.5s infinite alternate;
+}
